@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.debtinfo.web.screens.session">
+    <data>
+        <instance id="sessionDc"
+                  class="com.company.debtinfo.entity.Session"
+                  view="session-view">
+            <loader/>
+        </instance>
+        <collection id="debtorsDc" class="com.company.debtinfo.entity.Debtor" view="_minimal">
+            <loader id="debtorsLc">
+                <query>
+                    <![CDATA[select e from debtinfo_Debtor e]]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="lettersDc" class="com.company.debtinfo.entity.Letter" view="_minimal">
+            <loader id="lettersLc">
+                <query>
+                    <![CDATA[select e from debtinfo_Letter e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="sessionDc">
+            <column width="250px">
+                <dateField id="dateField" property="date"/>
+                <lookupPickerField id="debtorField" optionsContainer="debtorsDc" property="debtor"/>
+                <lookupPickerField id="letterField" optionsContainer="lettersDc" property="letter"/>
+                <textField id="commentsField" property="comments"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

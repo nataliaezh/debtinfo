@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+
+    <view entity="debtinfo_Session" name="session-view" extends="_local">
+        <property name="debtor" view="_minimal"/>
+        <property name="letter" view="_minimal"/>
+    </view>
+</views>

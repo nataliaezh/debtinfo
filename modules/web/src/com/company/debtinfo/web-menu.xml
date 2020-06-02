@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="debtors" insertBefore="administration">
+        <item screen="debtinfo_Debtor.browse"/>
+        <item screen="debtinfo_Letter.browse"/>
+        <item screen="debtinfo_Session.browse"/>
+
+    </menu>
+</menu-config>
